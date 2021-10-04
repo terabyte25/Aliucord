@@ -38,7 +38,7 @@ public final class Injector {
     public static void init() {
         try {
             Log.d(LOG_TAG, "Hooking AppActivity.onCreate...");
-            unhook = XposedBridge.hookMethod(AppActivity.class.getDeclaredMethod("onCreate", Bundle.class), new XC_MethodHook() {
+            unhook = DexposedBridge.hookMethod(AppActivity.class.getDeclaredMethod("onCreate", Bundle.class), new XC_MethodHook() {
                 @Override
                 public void beforeHookedMethod(MethodHookParam param) {
                     Logger.d("hello from epic");
