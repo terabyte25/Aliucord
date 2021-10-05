@@ -171,6 +171,7 @@ public final class MainActivity extends FlutterActivity {
                             AssetManager assets = getAssets();
                             Utils.writeEntry(zip, "classes5.dex", Utils.readBytes(assets.open("epic/classes.dex")));
                             Utils.writeEntry(zip, "classes6.dex", Utils.readBytes(assets.open("epic/xposedapi.dex")));
+                            Utils.writeEntry(zip, "classes7.dex", Utils.readBytes(assets.open("epic/freereflection.dex")));
 
                             zip.openEntry("AndroidManifest.xml");
                             zip.compressFile(getFilesDir().getAbsolutePath() + "/AndroidManifest.xml");
@@ -183,7 +184,7 @@ public final class MainActivity extends FlutterActivity {
                             Utils.writeEntry(zip, "lib/x86_64/libepic.so", Utils.readBytes(assets.open("epic/x86_64/libepic.so")));
 
 
-                            Utils.writeEntry(zip, "classes7.dex", Utils.readBytes(assets.open("kotlin/classes.dex")));
+                            Utils.writeEntry(zip, "classes8.dex", Utils.readBytes(assets.open("kotlin/classes.dex")));
                             zip.close();
 
                             if (methodCall.argument("replaceBg") != Boolean.FALSE) {

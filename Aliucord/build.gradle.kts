@@ -60,6 +60,7 @@ dependencies {
 
     discord("com.discord:discord:${findProperty("discord_version")}")
     api("com.github.tiann:epic:0.11.2")
+    api(files("../.assets/epic-0.11.2.aar"))
 }
 
 tasks.dokkaHtml.configure {

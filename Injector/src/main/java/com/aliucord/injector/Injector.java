@@ -41,10 +41,10 @@ public final class Injector {
             unhook = DexposedBridge.hookMethod(AppActivity.class.getDeclaredMethod("onCreate", Bundle.class), new XC_MethodHook() {
                 @Override
                 public void beforeHookedMethod(MethodHookParam param) {
-                    Logger.d("hello from epic");
-                    init((AppActivity) param.thisObject);
+                    Logger.d("Now this is epic");
                     unhook.unhook();
                     unhook = null;
+                    init((AppActivity) param.thisObject);
                 }
             });
         } catch (Throwable th) {
