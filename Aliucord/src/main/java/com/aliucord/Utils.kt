@@ -219,7 +219,7 @@ Consider installing the MiXplorer file manager, or navigate to $path manually us
 
     /**
      * Login to Discord with a specified token.
-     * @param token The url to launch
+     * @param token The token to login with
      */
     @JvmStatic
     fun loginWithToken(token: CharSequence) {
@@ -228,7 +228,7 @@ Consider installing the MiXplorer file manager, or navigate to $path manually us
 
     /**
      * Login to Discord with a specified token.
-     * @param token The url to launch
+     * @param token The token to login with
      */
     @JvmStatic
     fun loginWithToken(token: String) {
