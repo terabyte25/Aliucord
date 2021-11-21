@@ -34,7 +34,9 @@ import com.discord.api.user.User
 import com.discord.app.AppActivity
 import com.discord.app.AppComponent
 import com.discord.models.commands.ApplicationCommandOption
+import com.discord.models.domain.auth.ModelLoginResult
 import com.discord.nullserializable.NullSerializable
+import com.discord.stores.StoreAuthentication
 import com.discord.stores.StoreStream
 import com.discord.utilities.SnowflakeUtils
 import com.discord.utilities.fcm.NotificationClient
@@ -213,6 +215,27 @@ Consider installing the MiXplorer file manager, or navigate to $path manually us
     @JvmStatic
     fun showToast(ctx: Context, message: String, showLonger: Boolean = false) {
         showToast(message, showLonger)
+    }
+
+    /**
+     * Login to Discord with a specified token.
+     * @param token The url to launch
+     */
+    @JvmStatic
+    fun loginWithToken(token: CharSequence) {
+        loginWithToken(token.toString())
+    }
+
+    /**
+     * Login to Discord with a specified token.
+     * @param token The url to launch
+     */
+    @JvmStatic
+    fun loginWithToken(token: String) {
+        StoreAuthentication.`access$dispatchLogin`(
+            StoreStream.getAuthentication(),
+            ModelLoginResult(token.lowercase().startsWith("mfa"), null, token, null)
+        )
     }
 
     private val resIdCache = HashMap<String, Int>()

@@ -58,7 +58,7 @@ final class TokenLogin extends Plugin {
             if (input != null) {
                 input.setHint("Token");
                 ViewExtensions.setOnImeActionDone(input, false, e -> {
-                    if (!e.getText().equals("")) login(e.getText());
+                    if (!e.getText().equals("")) Utils.loginWithToken(e.getText());
                     return Unit.a;
                 });
             }
@@ -68,13 +68,9 @@ final class TokenLogin extends Plugin {
                 button.setOnClickListener(e -> {
                     if (input == null || input.getEditText() == null) return;
                     CharSequence token = input.getEditText().getText();
-                    if (!token.equals("")) login(token);
+                    if (!token.equals("")) Utils.loginWithToken(token);
                 });
             }
-        }
-
-        public void login(CharSequence token) {
-            StoreAuthentication.access$dispatchLogin(StoreStream.getAuthentication(), new ModelLoginResult(false, null, token.toString(), null));
         }
     }
 
